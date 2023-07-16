@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>asd</h1>
+<h1>asd</h1>
+<h1>asd</h1>
+<h1>asd</h1>
+<form method="POST" action="res">
+    <input type="text" name="textInput" value="">
+    <input type="submit" value="Submit">
+</form>
+<!--<input type="text" th:value="${value}">-->
+<!--<input type="submit">-->
+<div th:each="message : ${messages}">
+    <audio controls="" th:autoplay="false" name="media">
+        <source th:src="${message}">
+    </audio>
+</div>
+<!--<iframe width="420" height="315" th:src="${message}">-->
+<!--</iframe>-->
+</body>
+<!--<iframe width="420" height="315"-->
+<!--        src="https://www.youtube.com/embed/i0KY3BJ6CXg">-->
+<!--</iframe>-->
+
+<h1></h1>
+</html>

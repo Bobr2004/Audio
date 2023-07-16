@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function updateData() {
+            $.ajax({
+                url: "/data",
+                type: "GET",
+                dataType: "json",
+                // loss: () => {
+                //     console.log("b" +"a" + + "a" + "a")
+                // }
+                success: function (data) {
+
+                    let html = "";
+                    for (let i = 0; i < data.length; i++) {
+                        html += "<li>" + data[i] + "</li>";
+                    }
+                    $("#data-list").html(html);
+                }
+            });
+        }
+        function refresh1 () {
+            setTimeout(updateData, 3000);
+        }
+
+        function construct(name, age) {
+            return {
+                "name": name,
+                "age": age,
+            }
+        }
+        let refresh2 = () => {
+            setTimeout(updateData, 3000);
+        }
+    </script>
+</head>
+<body>
+<h1>)))))))))))))</h1>
+<ul id="data-list"></ul>
+<button class = "refresh" onclick="refresh2()">Refresh</button>
+<form action="first.html" method="post">
+    <h1>add song</h1>
+    <input type="text" name="text">
+    <input type="submit">
+</form>
+<div th:each="song : ${songs}">
+    <audio controls="" th:autoplay="false" name="media">
+        <source th:src="${song}">
+    </audio>
+</div>
+</body>
+</html>

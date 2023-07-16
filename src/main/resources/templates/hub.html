@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hub</title>
+</head>
+<body>
+<a th:href="@{/createRoom}">Create room</a>
+<div th:each="message : ${messages}">
+    <!--    <div ></div>-->
+    <form method="post" th:action="'verification/' + ${message.getName()}">
+        <div  th:href=" ${message.getName()}" th:text="${message.getName()}"></div>
+
+        <input type="password" name="password">
+        <input type="submit">
+    </form>
+    <form th:if="${message.getName().equals(message2)}"  method="post" th:action="${message.getName()}">
+        <input type="submit">
+    </form>
+</div>
+</body>
+</html>
